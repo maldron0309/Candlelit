@@ -12,18 +12,21 @@ public class _Player : MonoBehaviour
     Rigidbody2D rb_;
     Vector2 Player_velocity;
 
-    
+
     [Header("Movement")]
     [SerializeField] float walkSpeed;
     [SerializeField] float runSpeed;
     [Space(1)]
     [Header("Rotation")]
     [SerializeField] float RotationDeg;
+    [Space(1)]
+    [Header("References")]
+    [SerializeField] Animator anim;
 
 
     [Header("Interaction")]
-    [SerializeField]KeyCode InteractionKey = KeyCode.Q;
-    [SerializeField]GameObject UI_interaction_Pannel;
+    [SerializeField] KeyCode InteractionKey = KeyCode.Q;
+    [SerializeField] GameObject UI_interaction_Pannel;
 
 
     void Awake()
@@ -46,16 +49,49 @@ public class _Player : MonoBehaviour
         //Setting MoveInput
         Player_velocity = Move().normalized;
 
-        //Rotation for faceing move direction
-        Rotation();
+        //Rotation for faceing move direction. Has been changed in favor of walk animations.
+        //Rotation();
 
         //Moving Player
         rb_.velocity = Player_velocity * Time.fixedDeltaTime * MovementSpeed();
+        SetAnimatorDirection(Player_velocity);
     }
 
-    void InteractionBoolSwitcher(){
+    void SetAnimatorDirection(Vector2 moveDirection)
+    {
+        if (moveDirection == Vector2.zero)
+        {
+            anim.CrossFade("Player_still", 0f);
+            return;
+        }
+
+        if (moveDirection.x > 0)
+        {
+            anim.CrossFade("Player_walk_right", 0f);
+            return;
+        }
+        else if (moveDirection.x < 0)
+        {
+            anim.CrossFade("Player_walk_left", 0f);
+            return;
+        }
+
+        if (moveDirection.y > 0)
+        {
+            anim.CrossFade("Player_walk_up", 0f);
+            return;
+        }
+        else if(moveDirection.y < 0)
+        {
+            anim.CrossFade("Player_walk_down", 0f);
+            return;
+        }
+    }
+
+    void InteractionBoolSwitcher()
+    {
         // print("E_Out");
-        if(!_currentLightInteraction)return;
+        if (!_currentLightInteraction) return;
         // print("E_In");
         _currentLightInteraction.isLighted = !_currentLightInteraction.isLighted;
     }
@@ -63,8 +99,8 @@ public class _Player : MonoBehaviour
     {
         if (Move().magnitude > 0.1f)
         {
-            Quaternion targetRotation = Quaternion.LookRotation(transform.forward,Move());
-            Quaternion rotation = Quaternion.RotateTowards(transform.rotation,targetRotation,RotationDeg * Time.fixedDeltaTime);
+            Quaternion targetRotation = Quaternion.LookRotation(transform.forward, Move());
+            Quaternion rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, RotationDeg * Time.fixedDeltaTime);
             rb_.MoveRotation(rotation);
         }
 
@@ -87,15 +123,16 @@ public class _Player : MonoBehaviour
     {
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
-        Vector2 moveInp = new Vector2(x,y);
-        if(moveInp.magnitude > 0.1f){
+        Vector2 moveInp = new Vector2(x, y);
+        if (moveInp.magnitude > 0.1f)
+        {
             return moveInp;
         }
         return Vector2.zero;
     }
-    
-#region Trigger System
-    
+
+    #region Trigger System
+
     /// <summary>
     /// 
     ///  Triggering System here XD
@@ -103,12 +140,14 @@ public class _Player : MonoBehaviour
     /// 
     /// </summary>
     /// <param name="collider"></param>
-    
+
 
 
     public Light_meUp _currentLightInteraction;
-    void OnTriggerEnter2D(Collider2D collider){
-        if(collider.gameObject.GetComponent<Light_meUp>()){
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.GetComponent<Light_meUp>())
+        {
             //Lightable object
             _currentLightInteraction = collider.gameObject.GetComponent<Light_meUp>();
             UI_interaction_Pannel.SetActive(true);
@@ -117,10 +156,11 @@ public class _Player : MonoBehaviour
             // print("LightMEUP");
         }
     }
-    void OnTriggerExit2D(){
+    void OnTriggerExit2D()
+    {
         // print("LightMEUP_exit");
         _currentLightInteraction = null;
         UI_interaction_Pannel.SetActive(false);
     }
-#endregion
+    #endregion
 }
