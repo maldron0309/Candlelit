@@ -13,17 +13,12 @@ public class _Player : MonoBehaviour
     Vector2 Player_velocity;
 
     
-
-
-
-
     [Header("Movement")]
     [SerializeField] float walkSpeed;
     [SerializeField] float runSpeed;
     [Space(1)]
     [Header("Rotation")]
     [SerializeField] float RotationDeg;
-
 
 
     [Header("Interaction")]
@@ -36,24 +31,23 @@ public class _Player : MonoBehaviour
         rb_ = GetComponent<Rigidbody2D>();
     }
 
-
-    void FixedUpdate()
+    private void Update()
     {
-
         //For Interaction Input
-        if(Input.GetKeyDown(InteractionKey)){
+        if (Input.GetKeyDown(InteractionKey))
+        {
             // print("E");
             InteractionBoolSwitcher();
         }
+    }
 
-
-
+    void FixedUpdate()
+    {
         //Setting MoveInput
         Player_velocity = Move().normalized;
 
         //Rotation for faceing move direction
         Rotation();
-
 
         //Moving Player
         rb_.velocity = Player_velocity * Time.fixedDeltaTime * MovementSpeed();

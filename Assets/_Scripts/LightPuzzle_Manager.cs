@@ -10,7 +10,6 @@ public class LightPuzzle_Manager : MonoBehaviour
 {
     public static LightPuzzle_Manager Instance;
 
-
     void Awake()
     {
         if (Instance == null)
@@ -25,8 +24,6 @@ public class LightPuzzle_Manager : MonoBehaviour
 
     public List<Light_meUp> Lights = new List<Light_meUp>();
     public List<puzzle_Order> PuzzleOrder = new List<puzzle_Order>();
-
-
 
     public void CheckLightsInOrder()
     {
@@ -55,10 +52,7 @@ public class LightPuzzle_Manager : MonoBehaviour
                 {
                     TurnOffLights();
                 }
-
             }
-
-
         }
     }
 
