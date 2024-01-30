@@ -6,9 +6,12 @@ public class FollowPlayer : MonoBehaviour
 {
     [SerializeField] Transform lookAt;
     [SerializeField]Vector3 offset;
+
+
+    [Range(0.75f,2.5f)]
     [SerializeField]float followSmoothness;
-    void Update()
+    void FixedUpdate()
     {
-        transform.position = Vector3.Lerp(transform.position,lookAt.position + offset,followSmoothness);
+        transform.position = Vector3.Lerp(transform.position,lookAt.position + offset,followSmoothness * Time.fixedDeltaTime);
     }
 }
