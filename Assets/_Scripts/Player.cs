@@ -15,6 +15,7 @@ public class _Player : MonoBehaviour
     [Header("Movement")]
     [SerializeField] float walkSpeed;
     [SerializeField] float runSpeed;
+
     void Start()
     {
         rb_ = GetComponent<Rigidbody2D>();
@@ -23,38 +24,42 @@ public class _Player : MonoBehaviour
 
     void FixedUpdate()
     {
-
-
-
-        //Check if player trying to move || not
-        if (Move().magnitude > 0.1f)
+        Vector2 movement = Move();
+        if (movement.magnitude > 0.1f)
         {
-            Player_velocity = Move().normalized;
+            Player_velocity = movement.normalized;
         }
         else
         {
             Player_velocity = Vector2.zero;
         }
-
-        rb_.velocity = Player_velocity * Time.fixedDeltaTime * MovementSpeed();
+        rb_.velocity = Player_velocity * MovementSpeed();
     }
+
 
     float MovementSpeed()
     {
-        float mSpeed = 0;
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            mSpeed = runSpeed;
-        }else{
-            mSpeed = walkSpeed;
+            return runSpeed;
         }
-        // print(mSpeed);
-        return mSpeed;
+        else
+        {
+            return walkSpeed;
+        }
     }
+
     Vector2 Move()
     {
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
+
+        // If moving diagonally, prioritize horizontal movement.
+        if (Mathf.Abs(x) > 0.5f && Mathf.Abs(y) > 0.5f)
+        {
+            y = 0;
+        }
+
         return new Vector2(x, y);
     }
 }
