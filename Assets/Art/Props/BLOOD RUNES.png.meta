@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 11c203a3d016a234495695b687d05f18
+guid: 9712e8c4a83ac7b4ca8d359921ef74e6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,85 +123,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CAVE MOUTH_0
+      name: BLOOD RUNES_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 51
-        width: 77
-        height: 36
+        x: 16
+        y: 27
+        width: 23
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca4b2f86eb856324c9c686642e48f0c7
-      internalID: 179264556
+      spriteID: 540e4265fc6066b4386a4cf88124afd5
+      internalID: 859304937
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CAVE MOUTH_1
+      name: BLOOD RUNES_1
       rect:
         serializedVersion: 2
-        x: 93
-        y: 51
-        width: 77
-        height: 36
+        x: 64
+        y: 24
+        width: 21
+        height: 35
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2d51acec5c4d1e42a6e87cd6b64656c
-      internalID: 1827318850
+      spriteID: d569f357d27731448a0d5634be1a074a
+      internalID: -1510748329
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CAVE MOUTH_2
+      name: BLOOD RUNES_2
       rect:
         serializedVersion: 2
-        x: 10
-        y: 9
-        width: 77
-        height: 36
+        x: 111
+        y: 23
+        width: 17
+        height: 38
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a2df42de83eab64184c3d9e9f2c05a8
-      internalID: 737746367
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CAVE MOUTH_3
-      rect:
-        serializedVersion: 2
-        x: 94
-        y: 9
-        width: 77
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: eb85c8c3c298f524192ced8ad110b3e0
-      internalID: -454308886
+      spriteID: ed100f0931f238b429d6c75acd20cda4
+      internalID: -610603717
       vertices: []
       indices: 
       edges: []
@@ -217,10 +196,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      CAVE MOUTH_0: 179264556
-      CAVE MOUTH_1: 1827318850
-      CAVE MOUTH_2: 737746367
-      CAVE MOUTH_3: -454308886
+      BLOOD RUNES_0: 859304937
+      BLOOD RUNES_1: -1510748329
+      BLOOD RUNES_2: -610603717
+      BLOOD RUNES_3: -1485828474
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

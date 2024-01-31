@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 11c203a3d016a234495695b687d05f18
+guid: 65120c819841e5040a038a338e0b4fd7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CAVE MOUTH_0
+      name: COMMS MACHINE_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 51
-        width: 77
-        height: 36
+        x: 16
+        y: 40
+        width: 33
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca4b2f86eb856324c9c686642e48f0c7
-      internalID: 179264556
+      spriteID: 97c8ff5c7bcc29548963547a45492052
+      internalID: 408787102
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CAVE MOUTH_1
+      name: COMMS MACHINE_1
       rect:
         serializedVersion: 2
-        x: 93
-        y: 51
-        width: 77
-        height: 36
+        x: 21
+        y: 11
+        width: 23
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,50 +158,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2d51acec5c4d1e42a6e87cd6b64656c
-      internalID: 1827318850
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CAVE MOUTH_2
-      rect:
-        serializedVersion: 2
-        x: 10
-        y: 9
-        width: 77
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9a2df42de83eab64184c3d9e9f2c05a8
-      internalID: 737746367
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CAVE MOUTH_3
-      rect:
-        serializedVersion: 2
-        x: 94
-        y: 9
-        width: 77
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: eb85c8c3c298f524192ced8ad110b3e0
-      internalID: -454308886
+      spriteID: 5c2bcd096117b1247a7b2c1978d1efd0
+      internalID: -1136941669
       vertices: []
       indices: 
       edges: []
@@ -217,10 +175,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      CAVE MOUTH_0: 179264556
-      CAVE MOUTH_1: 1827318850
-      CAVE MOUTH_2: 737746367
-      CAVE MOUTH_3: -454308886
+      COMMS MACHINE_0: 408787102
+      COMMS MACHINE_1: -1136941669
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

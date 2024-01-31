@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: jungle_assets_2
+  m_Name: WALLS FLOORS DIRT_5
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -1396473167, guid: dde8ee92a5316cc4b932cf936f7acf62, type: 3}
+  m_Sprite: {fileID: 412115943, guid: b63120d23b8018a408ce1b8bcdd9c433, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
