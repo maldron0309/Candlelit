@@ -1,28 +1,29 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
 
-public class Light_meUp : MonoBehaviour
+public class Light_meUp : MonoBehaviour, I_interactable
 {
-    public bool isLighted = false;
     public int Puzzle_Index;
-    [SerializeField]Light2D myLight;
+    public Light2D myLight;
 
 
-    void Start(){
-        InvokeRepeating(nameof(CheckMyLight),1f,0.25f);
-    }
-    void CheckMyLight(){
-        if(!isLighted){
-            myLight.enabled = false;
-
-        }else{
-            myLight.enabled = true;
-            
-        }
+    public void Interact()
+    {
+        SwitchLight();
         LightPuzzle_Manager.Instance.CheckLightsInOrder();
-        
+    }
+    void SwitchLight()
+    {
+        myLight.enabled = !myLight.enabled;
     }
 }
+public interface I_interactable
+{
+    void Interact();
+}
+

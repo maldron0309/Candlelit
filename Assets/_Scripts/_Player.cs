@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -21,12 +22,14 @@ public class _Player : MonoBehaviour
     [SerializeField] float RotationDeg;
     [Space(1)]
     [Header("References")]
+    [SerializeField] GameObject MyCandle;
     [SerializeField] Animator anim;
 
 
     [Header("Interaction")]
-    [SerializeField] KeyCode InteractionKey = KeyCode.Q;
+    [SerializeField] KeyCode InteractionKey = KeyCode.E;
     [SerializeField] GameObject UI_interaction_Pannel;
+    [SerializeField]TMP_Text Interaction_Text_;
 
 
     void Awake()
@@ -39,7 +42,6 @@ public class _Player : MonoBehaviour
         //For Interaction Input
         if (Input.GetKeyDown(InteractionKey))
         {
-            // print("E");
             InteractionBoolSwitcher();
         }
     }
@@ -81,7 +83,7 @@ public class _Player : MonoBehaviour
             anim.CrossFade("Player_walk_up", 0f);
             return;
         }
-        else if(moveDirection.y < 0)
+        else if (moveDirection.y < 0)
         {
             anim.CrossFade("Player_walk_down", 0f);
             return;
@@ -90,10 +92,17 @@ public class _Player : MonoBehaviour
 
     void InteractionBoolSwitcher()
     {
-        // print("E_Out");
-        if (!_currentLightInteraction) return;
-        // print("E_In");
-        _currentLightInteraction.isLighted = !_currentLightInteraction.isLighted;
+
+        if (_currentLightInteraction)
+        {
+            _currentLightInteraction.Interact();
+        }
+        if (_currentCandleLight)
+        {
+            _currentCandleLight.Interact();
+            MyCandle.SetActive(true);
+        }
+
     }
     void Rotation()
     {
@@ -143,23 +152,33 @@ public class _Player : MonoBehaviour
 
 
 
-    public Light_meUp _currentLightInteraction;
+    Light_meUp _currentLightInteraction;
+    CandleLight_ _currentCandleLight;
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.GetComponent<Light_meUp>())
+
+        Light_meUp lights_ = collider.GetComponent<Light_meUp>();
+        if (lights_)
         {
-            //Lightable object
-            _currentLightInteraction = collider.gameObject.GetComponent<Light_meUp>();
+            _currentLightInteraction = lights_;
+            Interaction_Text_.text = "Press E to Interact";
             UI_interaction_Pannel.SetActive(true);
-
-
-            // print("LightMEUP");
         }
+
+        CandleLight_ candle = collider.GetComponent<CandleLight_>();
+        if (candle)
+        {
+            Interaction_Text_.text = "Press E to Pickup candle";
+            _currentCandleLight = candle;
+            UI_interaction_Pannel.SetActive(true);
+        }
+
     }
     void OnTriggerExit2D()
     {
         // print("LightMEUP_exit");
         _currentLightInteraction = null;
+        _currentCandleLight = null;
         UI_interaction_Pannel.SetActive(false);
     }
     #endregion

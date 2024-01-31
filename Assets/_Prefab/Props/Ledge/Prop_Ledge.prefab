@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5506393514987938876}
   - component: {fileID: 8246010195938965511}
   - component: {fileID: -5202635081712187090}
+  - component: {fileID: 5309858187810393010}
   m_Layer: 0
   m_Name: Prop_Ledge
   m_TagString: Untagged
@@ -130,3 +131,53 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.3125, y: 1.1875}
   m_EdgeRadius: 0
+--- !u!114 &5309858187810393010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9167207559369615965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -1.65625, y: -0.30056286, z: 0}
+  - {x: -1.6614819, y: 0.37214398, z: 0}
+  - {x: -1.5622091, y: 0.56055903, z: 0}
+  - {x: 0.06037426, y: 0.5305393, z: 0}
+  - {x: 0.18664122, y: 0.42297864, z: 0}
+  - {x: 0.49529314, y: 0.45571446, z: 0}
+  - {x: 0.6168833, y: 0.59133434, z: 0}
+  - {x: 1.3563786, y: 0.59550476, z: 0}
+  - {x: 1.6530876, y: 0.46092892, z: 0}
+  - {x: 1.6466956, y: -0.28202367, z: 0}
+  - {x: 1.5069752, y: -0.47264004, z: 0}
+  - {x: 1.361033, y: -0.47552848, z: 0}
+  - {x: 1.1885085, y: -0.39301682, z: 0}
+  - {x: 1.0572405, y: -0.38926625, z: 0}
+  - {x: 1.0309868, y: -0.4380231, z: 0}
+  - {x: 0.8172064, y: -0.45677567, z: 0}
+  - {x: 0.6409316, y: -0.58429384, z: 0}
+  - {x: 0.22487164, y: -0.5903945, z: 0}
+  - {x: 0.03125763, y: -0.474226, z: 0}
+  - {x: -0.3449068, y: -0.474226, z: 0}
+  - {x: -0.71000767, y: -0.24742079, z: 0}
+  - {x: -0.8206444, y: -0.2529528, z: 0}
+  - {x: -1.0917034, y: -0.474226, z: 0}
+  - {x: -1.5121231, y: -0.4686942, z: 0}
+  m_ShapePathHash: -429917679
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -183478
+  m_LocalBounds:
+    m_Center: {x: -0.0041971207, y: 0.002555132, z: 0}
+    m_Extent: {x: 1.6572847, y: 0.5929496, z: 0}

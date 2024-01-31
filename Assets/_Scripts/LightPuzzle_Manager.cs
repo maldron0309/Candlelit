@@ -29,24 +29,23 @@ public class LightPuzzle_Manager : MonoBehaviour
     {
         for (int i = 1; i < Lights.Count + 1; i++)
         {
-            if (Lights[i - 1].isLighted)
+            if (Lights[i - 1].enabled)
             {
                 if (PuzzleOrder[0].Index == Lights[i - 1].Puzzle_Index)
                 {
-                    PuzzleOrder[0].endabled = Lights[i - 1].isLighted;
-
+                    PuzzleOrder[0].endabled = Lights[i - 1].myLight.enabled;
                 }
-                else if (PuzzleOrder[1].Index == Lights[i - 1].Puzzle_Index && PuzzleOrder[0].endabled)
+                if (PuzzleOrder.Count > 0 || PuzzleOrder[1].Index == Lights[i - 1].Puzzle_Index && PuzzleOrder[0].endabled)
                 {
-                    PuzzleOrder[1].endabled = Lights[i - 1].isLighted;
+                    PuzzleOrder[1].endabled = Lights[i - 1].myLight.enabled;
                 }
-                else if (PuzzleOrder[2].Index == Lights[i - 1].Puzzle_Index && PuzzleOrder[1].endabled)
+                if (PuzzleOrder.Count > 1 || PuzzleOrder[2].Index == Lights[i - 1].Puzzle_Index && PuzzleOrder[1].endabled)
                 {
-                    PuzzleOrder[2].endabled = Lights[i - 1].isLighted;
+                    PuzzleOrder[2].endabled = Lights[i - 1].myLight.enabled;
                 }
-                else if (PuzzleOrder[3].Index == Lights[i - 1].Puzzle_Index && PuzzleOrder[2].endabled)
+                if (PuzzleOrder.Count > 2 || PuzzleOrder[3].Index == Lights[i - 1].Puzzle_Index && PuzzleOrder[2].endabled)
                 {
-                    PuzzleOrder[3].endabled = Lights[i - 1].isLighted;
+                    PuzzleOrder[3].endabled = Lights[i - 1].myLight.enabled;
                 }
                 else
                 {
@@ -54,6 +53,7 @@ public class LightPuzzle_Manager : MonoBehaviour
                 }
             }
         }
+
     }
 
 
@@ -62,14 +62,18 @@ public class LightPuzzle_Manager : MonoBehaviour
     {
         foreach (var item in Lights)
         {
-            item.isLighted = false;
+            item.myLight.enabled = false;
         }
         foreach (var item in PuzzleOrder)
         {
             item.endabled = false;
         }
     }
+
 }
+
+
+
 [Serializable]
 public class puzzle_Order
 {
