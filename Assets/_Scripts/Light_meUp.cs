@@ -24,6 +24,6 @@ public class Light_meUp : MonoBehaviour, I_interactable
 }
 public interface I_interactable
 {
-    void Interact();
+   public void Interact();
 }
 

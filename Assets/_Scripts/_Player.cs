@@ -4,7 +4,7 @@ using TMPro;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
-
+using UnityEngine.Rendering.Universal;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class _Player : MonoBehaviour
@@ -22,7 +22,6 @@ public class _Player : MonoBehaviour
     [SerializeField] float RotationDeg;
     [Space(1)]
     [Header("References")]
-    [SerializeField] GameObject MyCandle;
     [SerializeField] Animator anim;
 
 
@@ -40,7 +39,7 @@ public class _Player : MonoBehaviour
     private void Update()
     {
         //For Interaction Input
-        if (Input.GetKeyDown(InteractionKey))
+        if (Input.GetKeyDown(InteractionKey) && interactable != null)
         {
             InteractionBoolSwitcher();
         }
@@ -92,7 +91,9 @@ public class _Player : MonoBehaviour
 
     void InteractionBoolSwitcher()
     {
+        interactable.Interact();
 
+        /*
         if (_currentLightInteraction)
         {
             _currentLightInteraction.Interact();
@@ -101,7 +102,9 @@ public class _Player : MonoBehaviour
         {
             _currentCandleLight.Interact();
             MyCandle.SetActive(true);
+            shadowCaster.enabled = false;
         }
+        */
 
     }
     void Rotation()
@@ -150,13 +153,21 @@ public class _Player : MonoBehaviour
     /// </summary>
     /// <param name="collider"></param>
 
-
+    I_interactable interactable;
 
     Light_meUp _currentLightInteraction;
     CandleLight_ _currentCandleLight;
     void OnTriggerEnter2D(Collider2D collider)
     {
 
+        if(collider.TryGetComponent(out I_interactable closestIteractable))
+        {
+            interactable = closestIteractable;
+            Interaction_Text_.text = "Press E to Interact";
+            UI_interaction_Pannel.SetActive(true);
+        }
+
+        /*
         Light_meUp lights_ = collider.GetComponent<Light_meUp>();
         if (lights_)
         {
@@ -172,13 +183,16 @@ public class _Player : MonoBehaviour
             _currentCandleLight = candle;
             UI_interaction_Pannel.SetActive(true);
         }
-
+        */
     }
     void OnTriggerExit2D()
     {
         // print("LightMEUP_exit");
+        /*
         _currentLightInteraction = null;
         _currentCandleLight = null;
+        */
+        interactable = null;
         UI_interaction_Pannel.SetActive(false);
     }
     #endregion
