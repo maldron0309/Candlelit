@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CandleLight_ : MonoBehaviour,I_interactable
 {
+
+
     public void Interact()
     {
         Destroy(gameObject);

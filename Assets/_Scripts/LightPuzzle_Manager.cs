@@ -1,10 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Cryptography;
 using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LightPuzzle_Manager : MonoBehaviour
 {
@@ -25,34 +27,67 @@ public class LightPuzzle_Manager : MonoBehaviour
     public List<Light_meUp> Lights = new List<Light_meUp>();
     public List<puzzle_Order> PuzzleOrder = new List<puzzle_Order>();
 
-    public void CheckLightsInOrder()
+    [SerializeField] int currentIndex = 0;
+    [SerializeField] int NextIndex = 1;
+
+
+
+    [Header("Event")]
+    public UnityEvent onComplete;
+    public UnityEvent onFailure;
+
+    
+    public void CheckLightsInOrder(int Index)
     {
-        for (int i = 1; i < Lights.Count + 1; i++)
+
+        // if(Index == PuzzleOrder[Index-1].Index){
+        //     print("yes");
+        // }else{
+        //     TurnOffLights();
+        // }
+
+        currentIndex = Index - 1;
+        
+        if (Index == NextIndex)
         {
-            if (Lights[i - 1].enabled)
-            {
-                if (PuzzleOrder[0].Index == Lights[i - 1].Puzzle_Index)
-                {
-                    PuzzleOrder[0].endabled = Lights[i - 1].myLight.enabled;
-                }
-                if (PuzzleOrder.Count > 0 || PuzzleOrder[1].Index == Lights[i - 1].Puzzle_Index && PuzzleOrder[0].endabled)
-                {
-                    PuzzleOrder[1].endabled = Lights[i - 1].myLight.enabled;
-                }
-                if (PuzzleOrder.Count > 1 || PuzzleOrder[2].Index == Lights[i - 1].Puzzle_Index && PuzzleOrder[1].endabled)
-                {
-                    PuzzleOrder[2].endabled = Lights[i - 1].myLight.enabled;
-                }
-                if (PuzzleOrder.Count > 2 || PuzzleOrder[3].Index == Lights[i - 1].Puzzle_Index && PuzzleOrder[2].endabled)
-                {
-                    PuzzleOrder[3].endabled = Lights[i - 1].myLight.enabled;
-                }
-                else
-                {
-                    TurnOffLights();
-                }
-            }
+            NextIndex = Index + 1;
+            PuzzleOrder[currentIndex].endabled = true;
+        }else{
+            TurnOffLights();
+            currentIndex = 0;
+            NextIndex = 1;
         }
+        if(PuzzleOrder.All(x => x.endabled == true)){
+            onComplete.Invoke();
+        }
+        // for (int i = 1; i < Lights.Count + 1; i++)
+        // {
+        //     if (Lights[i - 1].enabled)
+        //     {
+        //         if (PuzzleOrder[0].Index == Lights[i - 1].Puzzle_Index)
+        //         {
+        //             PuzzleOrder[0].endabled = Lights[i - 1].myLight.enabled;
+        //         }
+        //         if (PuzzleOrder.Count > 0 || PuzzleOrder[1].Index == Lights[i - 1].Puzzle_Index && PuzzleOrder[0].endabled)
+        //         {
+        //             PuzzleOrder[1].endabled = Lights[i - 1].myLight.enabled;
+        //         }
+        //         if (PuzzleOrder.Count > 1 || PuzzleOrder[2].Index == Lights[i - 1].Puzzle_Index && PuzzleOrder[1].endabled)
+        //         {
+        //             PuzzleOrder[2].endabled = Lights[i - 1].myLight.enabled;
+        //         }
+        //         if (PuzzleOrder.Count > 2 || PuzzleOrder[3].Index == Lights[i - 1].Puzzle_Index && PuzzleOrder[2].endabled)
+        //         {
+        //             PuzzleOrder[3].endabled = Lights[i - 1].myLight.enabled;
+        //         }
+        //         else
+        //         {
+        //             TurnOffLights();
+        //         }
+        //     }
+        // }
+
+
 
     }
 
@@ -60,6 +95,8 @@ public class LightPuzzle_Manager : MonoBehaviour
 
     void TurnOffLights()
     {
+        onFailure.Invoke();
+        print("Noo");
         foreach (var item in Lights)
         {
             item.myLight.enabled = false;
