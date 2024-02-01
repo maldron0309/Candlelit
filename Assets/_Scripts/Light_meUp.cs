@@ -16,7 +16,9 @@ public class Light_meUp : MonoBehaviour, I_interactable
     {
         SwitchLight();
         LightPuzzle_Manager.Instance.CheckLightsInOrder(Puzzle_Index);
+
     }
+
     void SwitchLight()
     {
         myLight.enabled = !myLight.enabled;

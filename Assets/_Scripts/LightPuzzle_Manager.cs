@@ -25,7 +25,11 @@ public class LightPuzzle_Manager : MonoBehaviour
     }
 
     public List<Light_meUp> Lights = new List<Light_meUp>();
+    public List<Light_meUp> Plates = new List<Light_meUp>();
+
+    public List<puzzle_Order> Plate_PuzzleOrder = new List<puzzle_Order>();
     public List<puzzle_Order> PuzzleOrder = new List<puzzle_Order>();
+
 
     [SerializeField] int currentIndex = 0;
     [SerializeField] int NextIndex = 1;
@@ -36,7 +40,7 @@ public class LightPuzzle_Manager : MonoBehaviour
     public UnityEvent onComplete;
     public UnityEvent onFailure;
 
-    
+
     public void CheckLightsInOrder(int Index)
     {
 
@@ -47,17 +51,20 @@ public class LightPuzzle_Manager : MonoBehaviour
         // }
 
         currentIndex = Index - 1;
-        
+
         if (Index == NextIndex)
         {
             NextIndex = Index + 1;
             PuzzleOrder[currentIndex].endabled = true;
-        }else{
+        }
+        else
+        {
             TurnOffLights();
             currentIndex = 0;
             NextIndex = 1;
         }
-        if(PuzzleOrder.All(x => x.endabled == true)){
+        if (PuzzleOrder.All(x => x.endabled == true))
+        {
             onComplete.Invoke();
         }
         // for (int i = 1; i < Lights.Count + 1; i++)
@@ -89,6 +96,33 @@ public class LightPuzzle_Manager : MonoBehaviour
 
 
 
+    }
+
+
+    public void CheckPlatesInOrder(int Index)
+    {
+        currentIndex = Index - 1;
+
+        if (Index == NextIndex)
+        {
+            NextIndex = Index + 1;
+            Plate_PuzzleOrder[currentIndex].endabled = true;
+        }
+        else
+        {
+            TurnOffLights();
+            currentIndex = 0;
+            NextIndex = 1;
+        }
+
+        if (Plate_PuzzleOrder.All(x => x.endabled == true))
+        {
+            onComplete.Invoke();
+        }
+        else if (Index != NextIndex)
+        {
+            TurnOffLights();
+        }
     }
 
 
