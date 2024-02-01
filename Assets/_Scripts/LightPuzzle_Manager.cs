@@ -100,6 +100,8 @@ public class LightPuzzle_Manager : MonoBehaviour
         foreach (var item in Lights)
         {
             item.myLight.enabled = false;
+            item.flameSr.enabled = false;
+            item.lightFlicker.enabled = false;
         }
         foreach (var item in PuzzleOrder)
         {

@@ -10,7 +10,13 @@ public class Light_meUp : MonoBehaviour, I_interactable
 {
     public int Puzzle_Index;
     public Light2D myLight;
+    public SpriteRenderer flameSr;
+    public LightFlicker lightFlicker;
 
+    private void Start()
+    {
+        flameSr.enabled = false;
+    }
 
     public void Interact()
     {
@@ -20,6 +26,8 @@ public class Light_meUp : MonoBehaviour, I_interactable
     void SwitchLight()
     {
         myLight.enabled = !myLight.enabled;
+        flameSr.enabled = myLight.enabled;
+        lightFlicker.enabled = myLight.enabled;
     }
 }
 public interface I_interactable
