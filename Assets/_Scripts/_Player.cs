@@ -23,6 +23,7 @@ public class _Player : MonoBehaviour
     [Space(1)]
     [Header("References")]
     [SerializeField] Animator anim;
+    [SerializeField] PlayerFootsteps playerFootsteps;
 
 
     [Header("Interaction")]
@@ -92,20 +93,6 @@ public class _Player : MonoBehaviour
     void InteractionBoolSwitcher()
     {
         interactable.Interact();
-
-        /*
-        if (_currentLightInteraction)
-        {
-            _currentLightInteraction.Interact();
-        }
-        if (_currentCandleLight)
-        {
-            _currentCandleLight.Interact();
-            MyCandle.SetActive(true);
-            shadowCaster.enabled = false;
-        }
-        */
-
     }
     void Rotation()
     {
@@ -143,6 +130,11 @@ public class _Player : MonoBehaviour
         return Vector2.zero;
     }
 
+    public void RequestFootstep()
+    {
+        playerFootsteps.RequestFootstep();
+    }
+
     #region Trigger System
 
     /// <summary>
@@ -167,31 +159,9 @@ public class _Player : MonoBehaviour
             UI_interaction_Pannel.SetActive(true);
         }
 
-        /*
-        Light_meUp lights_ = collider.GetComponent<Light_meUp>();
-        if (lights_)
-        {
-            _currentLightInteraction = lights_;
-            Interaction_Text_.text = "Press E to Interact";
-            UI_interaction_Pannel.SetActive(true);
-        }
-
-        CandleLight_ candle = collider.GetComponent<CandleLight_>();
-        if (candle)
-        {
-            Interaction_Text_.text = "Press E to Pickup candle";
-            _currentCandleLight = candle;
-            UI_interaction_Pannel.SetActive(true);
-        }
-        */
     }
     void OnTriggerExit2D()
     {
-        // print("LightMEUP_exit");
-        /*
-        _currentLightInteraction = null;
-        _currentCandleLight = null;
-        */
         interactable = null;
         UI_interaction_Pannel.SetActive(false);
     }
