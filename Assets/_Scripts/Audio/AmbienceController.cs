@@ -38,4 +38,9 @@ public class AmbienceController : MonoBehaviour
     {
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Level", level);
     }
+
+    public void StopAmbience()
+    {
+        ambienceEvent.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+    }
 }

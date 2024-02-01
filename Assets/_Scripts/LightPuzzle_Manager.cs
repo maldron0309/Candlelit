@@ -57,6 +57,7 @@ public class LightPuzzle_Manager : MonoBehaviour
         if (PuzzleOrder.All(x => x.endabled == true))
         {
             onComplete.Invoke();
+            FMODOneshot.RequestOneshot("event:/SFX/PuzzleElements/sfx_puzzle_Complete");
         }
 
     }
@@ -75,6 +76,7 @@ public class LightPuzzle_Manager : MonoBehaviour
         {
             item.endabled = false;
         }
+        FMODOneshot.RequestOneshot("event:/SFX/PuzzleElements/sfx_torch_off");
     }
 
 

@@ -61,6 +61,7 @@ public class PlatePuzzle_Manager : MonoBehaviour
         if (PlateOrder.All(x => x.enabled == true))
         {
             onComplete.Invoke();
+            FMODOneshot.RequestOneshot("event:/SFX/PuzzleElements/sfx_puzzle_Complete");
         }
 
         Debug.Log($"Plate {index} stepped. Current state: {PlateOrder[currentIndex].enabled}");

@@ -18,6 +18,7 @@ public class PressurePlate : MonoBehaviour
             isStepped = true;
             
             PlatePuzzle_Manager.Instance.CheckPlatesInOrder(Puzzle_Index);  // ���� �ε��� Ȯ�� �ڵ� �߰�
+            FMODOneshot.RequestOneshot("event:/SFX/PuzzleElements/sfx_pressurePlate_step");
         }
     }
 

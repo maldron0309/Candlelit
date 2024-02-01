@@ -198,6 +198,7 @@ GameObject:
   - component: {fileID: 8598049513862156580}
   - component: {fileID: 1513046077988158298}
   - component: {fileID: 6034142290467721043}
+  - component: {fileID: 8428798563700797471}
   m_Layer: 0
   m_Name: Prop_CrewDevice
   m_TagString: Untagged
@@ -364,6 +365,37 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8428798563700797471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4765155209073637669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1157064585
+      Data2: 1142271913
+      Data3: -1302353273
+      Data4: 995125270
+    Path: event:/SFX/Device/sfx_device_hum
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &4822609802092572541
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,6 +496,9 @@ MonoBehaviour:
   maxIntensity: 0.2
   minFlickerSpeed: 0.1
   maxFlickerSpeed: 0.35
+  playsSound: 0
+  lightThreshold: 0
+  soundPath: 
 --- !u!1001 &1345204621892430982
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -722,3 +757,6 @@ MonoBehaviour:
   maxIntensity: 1
   minFlickerSpeed: 0.025
   maxFlickerSpeed: 0.35
+  playsSound: 0
+  lightThreshold: 0
+  soundPath: 

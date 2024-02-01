@@ -22,7 +22,6 @@ public class Light_meUp : MonoBehaviour, I_interactable
     {
         SwitchLight();
         LightPuzzle_Manager.Instance.CheckLightsInOrder(Puzzle_Index);
-
     }
 
     void SwitchLight()
@@ -30,6 +29,7 @@ public class Light_meUp : MonoBehaviour, I_interactable
         myLight.enabled = !myLight.enabled;
         flameSr.enabled = myLight.enabled;
         lightFlicker.enabled = myLight.enabled;
+        if (myLight.enabled == true) FMODOneshot.RequestOneshot("event:/SFX/PuzzleElements/sfx_torch_on");
     }
 }
 public interface I_interactable

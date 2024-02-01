@@ -8,4 +8,9 @@ public class FMODOneshot : MonoBehaviour
     {
         FMODUnity.RuntimeManager.PlayOneShot(eventPath);
     }
+
+    public static void RequestOneshotWithPosition(string eventPath, Vector3 position)
+    {
+        FMODUnity.RuntimeManager.PlayOneShot(eventPath, position);
+    }
 }

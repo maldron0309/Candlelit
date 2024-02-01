@@ -11,6 +11,10 @@ public class LightFlicker : MonoBehaviour
     [SerializeField] float minFlickerSpeed;
     [SerializeField] float maxFlickerSpeed;
 
+    [SerializeField] bool playsSound;
+    [SerializeField] float lightThreshold;
+    [SerializeField] string soundPath;
+
     private void OnEnable()
     {
         float targetIntensity = Random.Range(minIntensity, maxIntensity);
@@ -30,6 +34,8 @@ public class LightFlicker : MonoBehaviour
             targetLight.intensity = Mathf.Lerp(startingIntensity, targetIntensity, currentTime / targetDuration);
             yield return null;
         }
+
+        if (playsSound && targetLight.intensity >= lightThreshold) FMODOneshot.RequestOneshotWithPosition(soundPath, transform.position);
 
         float newTargetIntensity = Random.Range(minIntensity, maxIntensity);
         float targetFlicker = Random.Range(minFlickerSpeed, maxFlickerSpeed);
