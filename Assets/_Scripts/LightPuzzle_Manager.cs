@@ -41,12 +41,6 @@ public class LightPuzzle_Manager : MonoBehaviour
     public void CheckLightsInOrder(int Index)
     {
 
-        // if(Index == PuzzleOrder[Index-1].Index){
-        //     print("yes");
-        // }else{
-        //     TurnOffLights();
-        // }
-
         currentIndex = Index - 1;
 
         if (Index == NextIndex)
@@ -64,41 +58,13 @@ public class LightPuzzle_Manager : MonoBehaviour
         {
             onComplete.Invoke();
         }
-        // for (int i = 1; i < Lights.Count + 1; i++)
-        // {
-        //     if (Lights[i - 1].enabled)
-        //     {
-        //         if (PuzzleOrder[0].Index == Lights[i - 1].Puzzle_Index)
-        //         {
-        //             PuzzleOrder[0].endabled = Lights[i - 1].myLight.enabled;
-        //         }
-        //         if (PuzzleOrder.Count > 0 || PuzzleOrder[1].Index == Lights[i - 1].Puzzle_Index && PuzzleOrder[0].endabled)
-        //         {
-        //             PuzzleOrder[1].endabled = Lights[i - 1].myLight.enabled;
-        //         }
-        //         if (PuzzleOrder.Count > 1 || PuzzleOrder[2].Index == Lights[i - 1].Puzzle_Index && PuzzleOrder[1].endabled)
-        //         {
-        //             PuzzleOrder[2].endabled = Lights[i - 1].myLight.enabled;
-        //         }
-        //         if (PuzzleOrder.Count > 2 || PuzzleOrder[3].Index == Lights[i - 1].Puzzle_Index && PuzzleOrder[2].endabled)
-        //         {
-        //             PuzzleOrder[3].endabled = Lights[i - 1].myLight.enabled;
-        //         }
-        //         else
-        //         {
-        //             TurnOffLights();
-        //         }
-        //     }
-        // }
-
-
 
     }
 
     void TurnOffLights()
     {
         onFailure.Invoke();
-        print("Noo");
+        print("No");
         foreach (var item in Lights)
         {
             item.myLight.enabled = false;

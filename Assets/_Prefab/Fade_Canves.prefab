@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 8537277162200036013}
   - component: {fileID: 3467109743313831695}
   - component: {fileID: 422911648629098603}
-  - component: {fileID: 470235602558590762}
+  - component: {fileID: 7016684000886770047}
+  - component: {fileID: 9204730977694408292}
   m_Layer: 5
   m_Name: Fade_Canves
   m_TagString: Untagged
@@ -112,11 +113,11 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6672356634687031891}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &470235602558590762
+--- !u!114 &7016684000886770047
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,11 +126,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 6672356634687031891}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42d4e0d111e91dd4ebaabaebc788aada, type: 3}
+  m_Script: {fileID: 11500000, guid: 6cf070e47b9210b47aca3e48da90069b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeDuration: 1.5
-  canvasGroup: {fileID: 422911648629098603}
+  animator: {fileID: 9204730977694408292}
+  SceneTransition_time: 0.25
+--- !u!95 &9204730977694408292
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6672356634687031891}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ba2471cdfd868b849aee609c3ee2e964, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8487136756887796203
 GameObject:
   m_ObjectHideFlags: 0

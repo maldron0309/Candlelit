@@ -16,7 +16,8 @@ public class PressurePlate : MonoBehaviour
         if (other.CompareTag("Player") && !isStepped)
         {
             isStepped = true;
-            PlatePuzzle_Manager.Instance.CheckPlatesInOrder(Puzzle_Index);  // ÆÛÁñ ÀÎµ¦½º È®ÀÎ ÄÚµå Ãß°¡
+            
+            PlatePuzzle_Manager.Instance.CheckPlatesInOrder(Puzzle_Index);  // ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½Úµï¿½ ï¿½ß°ï¿½
         }
     }
 

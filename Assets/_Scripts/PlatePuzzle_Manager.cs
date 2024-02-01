@@ -2,11 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting.ReorderableList;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class PlatePuzzle_Manager : MonoBehaviour
 {
+
+    public Color PressedColor;
+    public Color UnPressedColor;
     public static PlatePuzzle_Manager Instance;
 
     public List<PressurePlate> Plates = new List<PressurePlate>();
@@ -18,6 +22,8 @@ public class PlatePuzzle_Manager : MonoBehaviour
     [Header("Event")]
     public UnityEvent onComplete;
     public UnityEvent onFailure;
+
+
 
     void Awake()
     {
@@ -44,6 +50,14 @@ public class PlatePuzzle_Manager : MonoBehaviour
             ResetPlates();
         }
 
+
+        foreach (var item in Plates)
+        {
+            if (item.isStepped)
+            {
+                item.GetComponent<SpriteRenderer>().color = PressedColor;
+            }
+        }
         if (PlateOrder.All(x => x.enabled == true))
         {
             onComplete.Invoke();
@@ -56,7 +70,7 @@ public class PlatePuzzle_Manager : MonoBehaviour
     void ResetPlates()
     {
         onFailure.Invoke();
-        Debug.Log("NO"); 
+        Debug.Log("NO");
         foreach (var item in PlateOrder)
         {
             item.enabled = false;
@@ -64,6 +78,7 @@ public class PlatePuzzle_Manager : MonoBehaviour
         foreach (var plate in Plates)
         {
             plate.ResetPlate();
+            plate.GetComponent<SpriteRenderer>().color = UnPressedColor;
         }
         currentIndex = 0;
         nextIndex = 1;
