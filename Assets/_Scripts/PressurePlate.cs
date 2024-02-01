@@ -5,22 +5,18 @@ using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
+
 public class PressurePlate : MonoBehaviour
 {
-    private Light_meUp lightMeUp;
+    public int Puzzle_Index;
     public bool isStepped;
-
-    private void Start()
-    {
-        lightMeUp = GetComponent<Light_meUp>();
-    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player") && !isStepped)
         {
             isStepped = true;
-            lightMeUp.Interact();
+            PlatePuzzle_Manager.Instance.CheckPlatesInOrder(Puzzle_Index);  // 퍼즐 인덱스 확인 코드 추가
         }
     }
 
@@ -31,4 +27,11 @@ public class PressurePlate : MonoBehaviour
             isStepped = false;
         }
     }
+
+    public void ResetPlate()
+    {
+        isStepped = false;
+    }
 }
+
+

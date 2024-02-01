@@ -25,9 +25,6 @@ public class LightPuzzle_Manager : MonoBehaviour
     }
 
     public List<Light_meUp> Lights = new List<Light_meUp>();
-    public List<Light_meUp> Plates = new List<Light_meUp>();
-
-    public List<puzzle_Order> Plate_PuzzleOrder = new List<puzzle_Order>();
     public List<puzzle_Order> PuzzleOrder = new List<puzzle_Order>();
 
 
@@ -98,35 +95,6 @@ public class LightPuzzle_Manager : MonoBehaviour
 
     }
 
-
-    public void CheckPlatesInOrder(int Index)
-    {
-        currentIndex = Index - 1;
-
-        if (Index == NextIndex)
-        {
-            NextIndex = Index + 1;
-            Plate_PuzzleOrder[currentIndex].endabled = true;
-        }
-        else
-        {
-            TurnOffLights();
-            currentIndex = 0;
-            NextIndex = 1;
-        }
-
-        if (Plate_PuzzleOrder.All(x => x.endabled == true))
-        {
-            onComplete.Invoke();
-        }
-        else if (Index != NextIndex)
-        {
-            TurnOffLights();
-        }
-    }
-
-
-
     void TurnOffLights()
     {
         onFailure.Invoke();
@@ -142,6 +110,7 @@ public class LightPuzzle_Manager : MonoBehaviour
             item.endabled = false;
         }
     }
+
 
 }
 
