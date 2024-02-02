@@ -100,6 +100,9 @@ MonoBehaviour:
   maxIntensity: 1
   minFlickerSpeed: 0.2
   maxFlickerSpeed: 0.45
+  playsSound: 0
+  lightThreshold: 0
+  soundPath: 
 --- !u!1 &1585905631165648223
 GameObject:
   m_ObjectHideFlags: 0
@@ -586,6 +589,8 @@ MonoBehaviour:
   InteractionKey: 101
   UI_interaction_Pannel: {fileID: 5270967392116643058}
   Interaction_Text_: {fileID: 4733541673710339417}
+  Interactable_Distance_threshold: 3
+  interactable_object: {fileID: 0}
 --- !u!95 &2378715475047244741
 Animator:
   serializedVersion: 5
@@ -731,7 +736,7 @@ MonoBehaviour:
   - {x: 0.50071275, y: -0.68130946, z: 0}
   m_ShapePathHash: -595377149
   m_Mesh: {fileID: 0}
-  m_InstanceId: 70206
+  m_InstanceId: -82306
   m_LocalBounds:
     m_Center: {x: 0.021282226, y: 0.013319492, z: 0}
     m_Extent: {x: 0.47943053, y: 0.69462895, z: 0}
@@ -794,7 +799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 0.392}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 0}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 0
@@ -822,14 +827,13 @@ GameObject:
   - component: {fileID: 1446481600326017597}
   - component: {fileID: 6784926994732738113}
   - component: {fileID: 6299334820337088702}
-  - component: {fileID: 6266811280181033432}
   m_Layer: 0
   m_Name: Candle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1446481600326017597
 Transform:
   m_ObjectHideFlags: 0
@@ -919,38 +923,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!58 &6266811280181033432
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6512664114154856475}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.390625

@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using TMPro;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class _Player : MonoBehaviour
@@ -29,12 +31,14 @@ public class _Player : MonoBehaviour
     [Header("Interaction")]
     [SerializeField] KeyCode InteractionKey = KeyCode.E;
     [SerializeField] GameObject UI_interaction_Pannel;
-    [SerializeField]TMP_Text Interaction_Text_;
+    [SerializeField] TMP_Text Interaction_Text_;
+    [SerializeField] float Interactable_Distance_threshold;
 
 
     void Awake()
     {
         rb_ = GetComponent<Rigidbody2D>();
+        //InvokeRepeating(nameof(checkFor_InteractableDistance),1f,1f);
     }
 
     private void Start()
@@ -49,6 +53,7 @@ public class _Player : MonoBehaviour
         {
             InteractionBoolSwitcher();
         }
+        checkFor_InteractableDistance();
     }
 
     void FixedUpdate()
@@ -151,24 +156,40 @@ public class _Player : MonoBehaviour
     /// <param name="collider"></param>
 
     I_interactable interactable;
+    Transform interactable_object;
+    void checkFor_InteractableDistance()
+    {
+        if (interactable == null) return;
+        float dist = Vector3.Distance(transform.position, interactable_object.position);
+        print(dist);
+        if (dist >= Interactable_Distance_threshold)
+        {
+            interactable_object = null;
+            UI_interaction_Pannel.SetActive(false);
+            interactable = null;
 
-    Light_meUp _currentLightInteraction;
-    CandleLight_ _currentCandleLight;
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D collider)
     {
 
-        if(collider.TryGetComponent(out I_interactable closestIteractable))
+        if (collider.TryGetComponent(out I_interactable closestIteractable))
         {
+            UI_interaction_Pannel.SetActive(true);
+            print(UI_interaction_Pannel.activeInHierarchy);
+            interactable_object = collider.transform;
             interactable = closestIteractable;
             Interaction_Text_.text = "Press E to Interact";
-            UI_interaction_Pannel.SetActive(true);
+            
         }
 
     }
-    void OnTriggerExit2D()
-    {
-        interactable = null;
-        UI_interaction_Pannel.SetActive(false);
-    }
+
     #endregion
+
+
+    public void RestartGame(){
+        SceneManager.LoadSceneAsync("LOADER");
+    }
 }

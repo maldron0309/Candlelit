@@ -1251,25 +1251,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4322616284346500396, guid: 8c36199b2f067ae44baea0e9dd1b2fb6, type: 3}
-      propertyPath: m_Maskable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4322616284346500396, guid: 8c36199b2f067ae44baea0e9dd1b2fb6, type: 3}
-      propertyPath: m_RaycastTarget
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6672356634687031891, guid: 8c36199b2f067ae44baea0e9dd1b2fb6, type: 3}
       propertyPath: m_Name
       value: Fade_Canves
-      objectReference: {fileID: 0}
-    - target: {fileID: 6672356634687031891, guid: 8c36199b2f067ae44baea0e9dd1b2fb6, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7016684000886770047, guid: 8c36199b2f067ae44baea0e9dd1b2fb6, type: 3}
-      propertyPath: SceneTransition_time
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8817403487691562399, guid: 8c36199b2f067ae44baea0e9dd1b2fb6, type: 3}
       propertyPath: m_Pivot.x
@@ -1350,10 +1334,6 @@ PrefabInstance:
     - target: {fileID: 8817403487691562399, guid: 8c36199b2f067ae44baea0e9dd1b2fb6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9110483852515525127, guid: 8c36199b2f067ae44baea0e9dd1b2fb6, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
