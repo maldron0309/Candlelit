@@ -37,6 +37,11 @@ public class _Player : MonoBehaviour
         rb_ = GetComponent<Rigidbody2D>();
     }
 
+    private void Start()
+    {
+        AmbienceController.instance.SetAmbience3DAttributes(gameObject);
+    }
+
     private void Update()
     {
         //For Interaction Input

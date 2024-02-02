@@ -39,6 +39,11 @@ public class AmbienceController : MonoBehaviour
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Level", level);
     }
 
+    public void SetAmbience3DAttributes(GameObject player)
+    {
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(ambienceEvent, player.transform, player.GetComponent<Rigidbody2D>());
+    }
+
     public void StopAmbience()
     {
         ambienceEvent.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
